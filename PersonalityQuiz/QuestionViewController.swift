@@ -14,7 +14,7 @@ class QuestionViewController: UIViewController {
     var animalTheme: String = "Animal"
     var shoeTheme: String = "Shoes"
     
-    
+    var questions = [Question]()
     
     var questionIndex = 0
     
@@ -49,111 +49,71 @@ class QuestionViewController: UIViewController {
     
     
     override func viewDidLoad() {
-//        QuizQuestiondecider()
+        QuizQuestiondecider(setTheme: setTheme)
         updateUI()
         super.viewDidLoad()
-        //This is to see which value was passed through from the IntroductionViewController
-        print("The value from Introduction view: \(setTheme!)")
-        print("The animal theme value is: \(animalTheme)")
-        print("The shoe theme value is: \(shoeTheme)")
     }
 
-    private func QuizQuestiondecider() {
-        if (setTheme == animalTheme) {
-            var questions: [Question] = [
-                Question(text: "Which do you like the most?",
-                         type: .single,
-                         answers: [
-                            Answer(text: "High Heel", type: .highHeel),
-                            Answer(text: "Sneaker", type: .sneaker),
-                            Answer(text: "Hiking Boot", type: .hikingBoot),
-                            Answer(text: "No Shoes", type: .bareFoot)
-                    ]),
-                Question(text: "Which activities do you enjoy?",
-                         type: .multiple,
-                         answers: [
-                            Answer(text: "Running", type: .sneaker),
-                            Answer(text: "Walking on the beach", type: .bareFoot),
-                            Answer(text: "Hiking", type: .hikingBoot),
-                            Answer(text: "Killing it", type: .highHeel)
-                    ]),
-                Question(text: "How do you like to dress up?",
-                         type: .ranged,
-                         answers: [
-                            Answer(text: "What's dress up?", type: .bareFoot),
-                            Answer(text: "I don't own dress shoes!", type: .hikingBoot),
-                            Answer(text: "I make it work.", type: .sneaker),
-                            Answer(text: "I stay fly!", type: .highHeel
-                            )
-                    ])
-            ]
-        } else {
-                    var questions: [Question] = [
-                        Question(text: "Which do you like the most?",
-                                 type: .single,
-                                 answers: [
-                                    Answer(text: "High Heel", type: .highHeel),
-                                    Answer(text: "Sneaker", type: .sneaker),
-                                    Answer(text: "Hiking Boot", type: .hikingBoot),
-                                    Answer(text: "No Shoes", type: .bareFoot)
-                            ]),
-                        Question(text: "Which activities do you enjoy?",
-                                 type: .multiple,
-                                 answers: [
+    func QuizQuestiondecider(setTheme: String) {
+        if (setTheme == shoeTheme) {
+        questions.append(Question(text: "Which do you like to do the most?",
+                                  type: .single,
+                                  answers: [
+                                    Answer(text: "Dancing", type: .highHeel),
                                     Answer(text: "Running", type: .sneaker),
+                                    Answer(text: "Adentures", type: .hikingBoot),
+                                    Answer(text: "Swimming", type: .bareFoot)
+            
+            ]))
+        questions.append(Question(text: "Which activities do you enjoy?",
+                                  type: .multiple,
+                                  answers: [
+                                    Answer(text: "Playing sports", type: .sneaker),
                                     Answer(text: "Walking on the beach", type: .bareFoot),
                                     Answer(text: "Hiking", type: .hikingBoot),
-                                    Answer(text: "Killing it", type: .highHeel)
-                            ]),
-                        Question(text: "How do you like to dress up?",
-                                 type: .ranged,
-                                 answers: [
-                                    Answer(text: "What's dress up?", type: .bareFoot),
-                                    Answer(text: "I don't own dress shoes!", type: .hikingBoot),
-                                    Answer(text: "I make it work.", type: .sneaker),
-                                    Answer(text: "I stay fly!", type: .highHeel
-                                    )
-                            ])
-                    ]
+                                    Answer(text: "killing it", type: .highHeel)
+                                    
+            ]))
+        questions.append(Question(text: "How do you prefer to dress fancy?",
+                                  type: .ranged,
+                                  answers: [
+                                    Answer(text: "What's fancy?", type: .bareFoot),
+                                    Answer(text: "I don't do fancy", type: .hikingBoot),
+                                    Answer(text: "I make it work", type: .sneaker),
+                                    Answer(text: "I stay fly", type: .highHeel)
+                                    ]))
+        
+        
+        } else {
+            questions.append(Question(text: "Which food do you like the most?",
+                                      type: .single,
+                                      answers: [
+                                        Answer(text: "Steak", type: .dog),
+                                        Answer(text: "Fish", type: .cat),
+                                        Answer(text: "Carrots", type: .rabbit),
+                                        Answer(text: "Corn", type: .turtle)
+                ]))
+            questions.append(Question(text: "Which activities do you enjoy?",
+                                      type: .multiple,
+                                      answers: [
+                                        Answer(text: "Swimming", type: .turtle),
+                                        Answer(text: "Sleeping", type: .cat),
+                                        Answer(text: "Cuddling", type: .rabbit),
+                                        Answer(text: "Eating", type: .dog)
+                ]))
+            questions.append(Question(text: "How much do you enjoy car rides?",
+                                      type: .ranged,
+                                      answers: [
+                                        Answer(text: "I dislike them", type: .cat),
+                                        Answer(text: "I get a little nervous", type: .rabbit),
+                                        Answer(text: "I barely notice them", type: .turtle),
+                                        Answer(text: "I love them", type: .dog)
+                ]))
         }
-
     }
 
-    
-    var questions: [Question] = [
-        Question(text: "Which do you like the most?",
-                 type: .single,
-                 answers: [
-                    Answer(text: "High Heel", type: .highHeel),
-                    Answer(text: "Sneaker", type: .sneaker),
-                    Answer(text: "Hiking Boot", type: .hikingBoot),
-                    Answer(text: "No Shoes", type: .bareFoot)
-            ]),
-        Question(text: "Which activities do you enjoy?",
-                 type: .multiple,
-                 answers: [
-                    Answer(text: "Running", type: .sneaker),
-                    Answer(text: "Walking on the beach", type: .bareFoot),
-                    Answer(text: "Hiking", type: .hikingBoot),
-                    Answer(text: "Killing it", type: .highHeel)
-            ]),
-        Question(text: "How do you like to dress up?",
-                 type: .ranged,
-                 answers: [
-                    Answer(text: "What's dress up?", type: .bareFoot),
-                    Answer(text: "I don't own dress shoes!", type: .hikingBoot),
-                    Answer(text: "I make it work.", type: .sneaker),
-                    Answer(text: "I stay fly!", type: .highHeel
-                    )
-            ])
-    ]
-    
-    
-
-    
     @IBAction func singleAnswerButtonPressed(_ sender: UIButton) {
         let currentAnswers = questions[questionIndex].answers
-        
         switch sender {
         case singleButton1:
             answersChosen.append(currentAnswers[0])

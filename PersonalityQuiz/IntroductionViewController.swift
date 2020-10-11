@@ -18,9 +18,6 @@ class IntroductionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-/* There is not a theme value until the user picks it by pressing one of the buttons,
-     once it is set it will be passed to the QuestionViewController so that controller will
-     know what questions to display.*/
     
     @IBAction func animalQuizButtonPressed(_ sender: UIButton) {
         self.theme = "Animal"

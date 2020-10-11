@@ -38,13 +38,13 @@ enum QuizType: Character {
         case .turtle:
             return "You are wise beyond your years, and you focus on the details. Slow and steady wins the race."
         case .highHeel:
-            return "You are a high heel"
+            return "Your classy and you know how to have a good time. Stay fly and dressed to kill."
         case .sneaker:
-            return "You are a sneaker"
+            return "You can look good and versatile at the same time. Ready for whatever."
         case .hikingBoot:
-            return "You are a hiking boot"
+            return "You have no boundaries and the sky is the limit. No one ever tells you where you can't go."
         case .bareFoot:
-            return "You prefer no shoes"
+            return "You are the one without shoes, you run wild. "
         }
     }
 }
